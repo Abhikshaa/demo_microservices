@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: <kafka-bootstrap-servers>
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      bootstrap-servers: <kafka-bootstrap-servers>
+      group-id: <kafka-consumer-group-id>
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: <comma-separated-packages-for-deserialization>
